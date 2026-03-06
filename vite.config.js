@@ -8,7 +8,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 
 export default defineConfig({
-  base: '/UI',
+  base: '/UI/',
   plugins: [
     vue(),
     vueJsx(),

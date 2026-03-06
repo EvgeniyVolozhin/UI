@@ -1,22 +1,23 @@
 import './assets/main.css'
-import { createRouter, createMemoryHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import Home from './Pages/Home.vue';
-import Favorites from './Pages/Favorites.vue';
+import Home from './Pages/Home.vue'
+import Favorites from './Pages/Favorites.vue'
 
 const app = createApp(App)
 
 const routes = [
-    { path: '/', name:'Home', component: Home },
-    { path: '/favorites', name:'Favorites' , component: Favorites },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/favorites', name: 'Favorites', component: Favorites },
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(),
-    routes,
+  // Hash history works reliably on GitHub Pages (no 404 on refresh)
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes,
 })
 
 app.use(router)
